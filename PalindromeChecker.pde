@@ -17,7 +17,7 @@ public void setup()
 public boolean palindrome(String word)
 {
   String word2 = onlyLetters(word);
-  if(word2.toLowerCase().equals(reverse(word2.toLowerCase())))
+  if(word2.equalsIgnoreCase(reverse(word2)))
     return true;
   else
     return false;
@@ -25,18 +25,17 @@ public boolean palindrome(String word)
 public String reverse(String str)
 {
   String reversed = "";
-  String sNew = new String();
   for(int i=str.length()-1; i>=0; i--){
     reversed = reversed + str.substring(i,i+1);
   }
-  return sNew;
+  return reversed;
 }
 
 public String onlyLetters(String sString){
   String onlyLetter = "";
   for(int i=0; i<sString.length(); i++){
     if(Character.isLetter(sString.charAt(i))){
-      onlyLetter = onlyLetter + sString.charAt(i);
+      onlyLetter = onlyLetter + sString.substring(i,i+1);
     }
   }
   return onlyLetter;
